@@ -22,3 +22,4 @@ The website includes five main pages:
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/school-website.git# Exam
+# Exam
