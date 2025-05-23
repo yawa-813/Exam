@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+/* Root colors & fonts */
+:root {
+  --primary-neon: #00ff44;          /* Bright green neon */
+  --primary-neon-light: #66ff88;    /* Light green */
+  --primary-dark: #000000;          /* Pure black background */
+  --accent-green: #00cc44;          /* Accent green (instead of pink) */
+  --text-light: #c8facc;            /* Soft light green text */
+  --glass-bg: rgba(0, 0, 0, 0.2);   /* Darker glass background */
+  --glass-blur: 15px;
+  --shadow-neon: #00ff44cc;         /* Green shadow with some transparency */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  background: var(--primary-dark);
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Glassmorphism Container for main layout */
+.d-flex.flex-column.min-vh-100 {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  box-shadow: 0 0 30px var(--shadow-neon);
+  border-radius: 20px;
+  margin: 1rem auto;
+  max-width: 1200px;
+  width: 90%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  color: var(--primary-neon);
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 10px var(--primary-neon);
+  margin-bottom: 1rem;
+}
+
+p, li, a, button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: var(--text-light);
+  letter-spacing: 0.02em;
+}
+
+/* Links */
+a {
+  color: var(--primary-neon-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: var(--accent-green);
+  text-shadow: 0 0 8px var(--accent-green);
+}
+
+/* Buttons */
+button, .btn-primary {
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(135deg, var(--primary-neon-light), var(--primary-neon));
+  border: none;
+  padding: 0.75rem 1.5rem;
+  color: var(--primary-dark);
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 15px var(--primary-neon);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+button:hover, .btn-primary:hover {
+  background: var(--accent-green);
+  color: var(--text-light);
+  box-shadow: 0 0 25px var(--accent-green);
+  transform: translateY(-3px);
+}
+
+/* Navbar (futuristic glass style) */
+.navbar-glass {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--primary-neon-light);
+  box-shadow: 0 0 15px var(--primary-neon);
+  z-index: 9999;
+  padding: 0.8rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.5s ease, box-shadow 0.5s ease;
+}
+.navbar-glass.scrolled {
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 0 25px var(--accent-green);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-family: 'Orbitron', sans-serif;
+  color: var(--primary-neon);
+  font-size: 1.8rem;
+  text-shadow: 0 0 12px var(--primary-neon);
+  cursor: pointer;
+  user-select: none;
+}
+.navbar-brand img {
+  height: 50px;
+  margin-right: 0.8rem;
+  filter: drop-shadow(0 0 6px var(--primary-neon));
+  transition: filter 0.3s ease;
+}
+.navbar-brand:hover img {
+  filter: drop-shadow(0 0 12px var(--accent-green));
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+.nav-link {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--primary-neon-light);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.nav-link:hover {
+  color: var(--accent-green);
+  text-shadow: 0 0 15px var(--accent-green);
+  transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(20px);
+  padding: 2rem 1rem;
+  color: var(--text-light);
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  letter-spacing: 1.2px;
+  box-shadow: 0 0 15px var(--primary-neon);
+  border-radius: 0 0 20px 20px;
+}
+
+/* Cards with neon glow */
+.card {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  box-shadow: 0 0 20px var(--primary-neon-light);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  color: var(--text-light);
+}
+.card:hover {
+  box-shadow: 0 0 40px var(--accent-green);
+  transform: translateY(-5px);
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #00ff44, #004d22);
+  padding: 6rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  color: var(--text-light);
+  box-shadow: 0 0 40px var(--primary-neon);
+}
+.hero-section h1 {
+  font-size: 3.5rem;
+  text-shadow: 0 0 20px var(--primary-neon);
+  margin-bottom: 1rem;
+}
+.hero-section p {
+  font-size: 1.4rem;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.85;
+}
+
+/* Animations */
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: 0 0 12px var(--primary-neon), 0 0 25px var(--primary-neon-light);
+  }
+  50% {
+    text-shadow: 0 0 22px var(--accent-green), 0 0 40px var(--accent-green);
+  }
+}
+.glow {
+  animation: glowPulse 2.5s infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 3rem 1rem;
+  }
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+  .navbar-glass {
+    padding: 0.6rem 1rem;
+  }
+  .nav-links {
+    gap: 1rem;
+  }
+}
